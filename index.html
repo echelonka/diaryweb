@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Exam App</title>
+</head>
+<body>
+	<div id="modal">
+		<div id="signUp">
+			<input type="text" id="nickSignUp" placeholder="Ваш ник"> 
+			<input type="password" id="passSignUp" placeholder="Ваш пароль">
+			<input type="button" value="Зарегистрироваться" id="signUpButton">
+			<p>или</p>
+		</div>
+		<div id="signIn">
+			<input type="text" id="nickSignIn" placeholder="Ваш ник"> 
+			<input type="password" id="passSignIn" placeholder="Ваш пароль">
+			<input type="button" value="Войти" id="signInButton">
+		</div>
+		<div id="logout">
+			<input type="button" value="Выйти" id="logoutButton">
+		</div>
+	</div>
+	<section>
+		<div class="tabs">
+			<button class="tablinks active" onclick='changeTab(event, "notes")'>Заметки</button>
+			<button class="tablinks" onclick='changeTab(event, "contacts")'>Контакты</button>
+			<button class="tablinks" onclick='changeTab(event, "todo")'>ToDo</button>
+		</div>
+		<div id="notes" class="tab-content">
+			<div class="note-controllers">
+				<input type="text" id="addNoteInput" placeholder="Ваша заметка..." readonly>
+				<input type="button" id="addNoteButton" value="Добавить заметку">
+			</div>
+			<ul id="notes-list"></ul>
+		</div>
+		<div id="contacts" class="tab-content">
+			<div class="contacts-controllers">
+				<input type="text" id="contactNameInput" placeholder="Введите имя контакта" readonly>
+				<input type="tel" id="contactTelInput" placeholder="Введите номер" readonly>
+				<input type="button" id="addContactButton" value="Добавить контакт">
+			</div>
+			<ul id="contacts-list"></ul>
+		</div>
+		<div id="todo" class="tab-content">
+			<div class="todo-controllers">
+				<input type="text" placeholder="Текст задания" id="taskInput" readonly>
+				<input type="datetime-local" id="taskDateInput" readonly>
+				<input type="button" value="Добавить задание" id="addTaskInput">
+			</div>
+			<ul id="tasks"></ul>
+		</div>
+	</section>
+
+	<link rel="stylesheet" href="style/style.css">
+	<script src="src/app.js"></script>
+</body>
+</html>

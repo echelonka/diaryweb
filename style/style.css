@@ -1,0 +1,269 @@
+body {
+  font-family: Verdana, Geneva, sans-serif;
+  padding: 0;
+  margin: 0;
+  display: flex; }
+  body .deleteLink {
+    text-align: right;
+    font-size: 14px;
+    text-decoration: none;
+    color: #9b0000;
+    margin-top: 5px;
+    display: block;
+    position: absolute;
+    width: 80px;
+    right: 10px;
+    transition: all .3s; }
+    body .deleteLink:hover {
+      color: red;
+      text-decoration: underline; }
+  body .changeLink {
+    text-align: right;
+    font-size: 14px;
+    text-decoration: none;
+    color: #0091ea;
+    margin-top: 5px;
+    display: block;
+    position: absolute;
+    width: 80px;
+    right: 90px;
+    transition: all .3s; }
+    body .changeLink:hover {
+      color: #0081cb;
+      text-decoration: underline; }
+  body #modal {
+    min-width: 180px;
+    min-height: calc(100vh - 30px);
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px; }
+    body #modal p {
+      text-align: center; }
+    body #modal #signUp, body #modal #signIn {
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      body #modal #signUp input, body #modal #signIn input {
+        width: 100%;
+        border: none;
+        padding: 5px;
+        border-radius: 5px;
+        outline: none; }
+        body #modal #signUp input[type="text"], body #modal #signUp input[type="password"], body #modal #signIn input[type="text"], body #modal #signIn input[type="password"] {
+          border: 1px solid #eee;
+          padding: 5px;
+          transition: box-shadow .3s;
+          width: 60%;
+          width: calc(100% - 10px);
+          margin-bottom: 5px; }
+          body #modal #signUp input[type="text"]:focus, body #modal #signUp input[type="password"]:focus, body #modal #signIn input[type="text"]:focus, body #modal #signIn input[type="password"]:focus {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        body #modal #signUp input[type="button"], body #modal #signIn input[type="button"] {
+          font-weight: bold;
+          color: white;
+          background-color: #0091ea;
+          transition: .3s; }
+          body #modal #signUp input[type="button"]:hover, body #modal #signIn input[type="button"]:hover {
+            background-color: #0081cb; }
+    body #modal #logout {
+      display: none;
+      flex-direction: column;
+      align-items: center; }
+      body #modal #logout input {
+        width: 100%;
+        border: none;
+        padding: 5px;
+        border-radius: 5px;
+        outline: none; }
+        body #modal #logout input[type="button"] {
+          font-weight: bold;
+          color: white;
+          background-color: #0091ea;
+          transition: .3s; }
+          body #modal #logout input[type="button"]:hover {
+            background-color: #0081cb; }
+  body section .tabs {
+    overflow: hidden;
+    background-color: #eee; }
+    body section .tabs button {
+      background-color: inherit;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      font-weight: bold; }
+      body section .tabs button:hover {
+        background-color: #ddd; }
+      body section .tabs button.active {
+        background-color: #ccc; }
+  body section .tab-content {
+    display: none; }
+  body #notes, body #contacts, body #todo {
+    min-width: 545px; }
+  body #notes {
+    display: block; }
+    body #notes .note-controllers {
+      padding: 20px;
+      background-color: #eee; }
+      body #notes .note-controllers input {
+        outline: none;
+        border-radius: 5px;
+        border: none; }
+        body #notes .note-controllers input[type="text"] {
+          border: 1px solid #eee;
+          padding: 5px;
+          transition: box-shadow .3s;
+          width: 60%; }
+          body #notes .note-controllers input[type="text"]:focus {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        body #notes .note-controllers input[type="button"] {
+          padding: 5px;
+          color: white;
+          font-weight: bold;
+          background-color: #78909c;
+          transition: .3s;
+          width: 35%; }
+          body #notes .note-controllers input[type="button"]:hover {
+            background-color: #4b636e; }
+    body #notes #notes-list {
+      list-style: none;
+      margin: 0;
+      margin-top: 10px;
+      padding: 0; }
+      body #notes #notes-list li {
+        position: relative;
+        padding: 10px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid #eee; }
+      body #notes #notes-list li {
+        width: calc(100% - 20px);
+        border-bottom: 1px solid #eee;
+        margin-bottom: 10px;
+        padding: 10px;
+        padding-bottom: 30px;
+        position: relative; }
+  body #contacts .contacts-controllers {
+    padding: 20px;
+    background-color: #eee; }
+    body #contacts .contacts-controllers input {
+      outline: none;
+      border-radius: 5px;
+      border: none; }
+      body #contacts .contacts-controllers input[type="text"], body #contacts .contacts-controllers input[type="tel"] {
+        border: 1px solid #eee;
+        padding: 5px;
+        transition: box-shadow .3s;
+        width: 60%;
+        width: auto; }
+        body #contacts .contacts-controllers input[type="text"]:focus, body #contacts .contacts-controllers input[type="tel"]:focus {
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+      body #contacts .contacts-controllers input[type="button"] {
+        padding: 5px;
+        color: white;
+        font-weight: bold;
+        background-color: #78909c;
+        transition: .3s; }
+        body #contacts .contacts-controllers input[type="button"]:hover {
+          background-color: #4b636e; }
+  body #contacts #contacts-list {
+    list-style: none;
+    margin: 0;
+    margin-top: 10px;
+    padding: 0; }
+    body #contacts #contacts-list li {
+      position: relative;
+      padding: 10px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #eee; }
+    body #contacts #contacts-list li {
+      position: relative;
+      padding: 10px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #eee; }
+      body #contacts #contacts-list li input {
+        outline: none;
+        cursor: default;
+        padding: 5px;
+        font-size: 16px;
+        width: auto;
+        border: none; }
+        body #contacts #contacts-list li input[type="text"] {
+          border-right: 1px solid #eee;
+          margin-right: 10px; }
+        body #contacts #contacts-list li input.input-change {
+          border: 1px solid #eee;
+          cursor: text; }
+  body #todo .todo-controllers {
+    padding: 20px;
+    background-color: #eee; }
+    body #todo .todo-controllers input {
+      outline: none;
+      border-radius: 5px;
+      border: none; }
+      body #todo .todo-controllers input[type="text"], body #todo .todo-controllers input[type="datetime-local"] {
+        border: 1px solid #eee;
+        padding: 5px;
+        transition: box-shadow .3s;
+        width: 60%;
+        width: auto; }
+        body #todo .todo-controllers input[type="text"]:focus, body #todo .todo-controllers input[type="datetime-local"]:focus {
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+      body #todo .todo-controllers input[type="datetime-local"] {
+        padding: 3.5px;
+        font-size: 12px;
+        font-family: Verdana, Geneva, sans-serif;
+        color: #959595; }
+      body #todo .todo-controllers input[type="button"] {
+        padding: 5px;
+        color: white;
+        font-weight: bold;
+        background-color: #78909c;
+        transition: .3s; }
+        body #todo .todo-controllers input[type="button"]:hover {
+          background-color: #4b636e; }
+  body #todo #tasks {
+    list-style: none;
+    margin: 0;
+    margin-top: 10px;
+    padding: 0; }
+    body #todo #tasks li {
+      position: relative;
+      padding: 10px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #eee; }
+    body #todo #tasks li {
+      /* position: relative;
+      padding: 10px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid $grey; */ }
+      body #todo #tasks li input {
+        margin-right: 10px; }
+        body #todo #tasks li input:before {
+          cursor: pointer;
+          content: "";
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          border-radius: 2px;
+          background-color: #aaa;
+          box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, 0.3), 0px 1px 0px 0px rgba(255, 255, 255, 0.8); }
+        body #todo #tasks li input:checked:before {
+          content: "\2713";
+          text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+          font-size: 15px;
+          color: #f3f3f3;
+          text-align: center;
+          line-height: 15px; }
+        body #todo #tasks li input:checked ~ span {
+          text-decoration: line-through; }
+      body #todo #tasks li p {
+        text-align: right;
+        color: #ccc;
+        font-size: 12px;
+        margin-bottom: 0; }
+
+/*# sourceMappingURL=style.css.map */
