@@ -17,4 +17,5 @@ The web-application has the following functional:
   * editing contact name and phone number
   
 If you're not registrated or authorized, you can't browse and create notes.
+
 You can check this out with by the following [link](https://echelonka.github.io/diaryweb/).
