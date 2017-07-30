@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+$lightgrey: #fafafa;
+$grey: #eee;
+$blue: #0091ea;
+$dark-blue: #0081cb;
+
+@mixin button {
+	padding: 10px;
+	color: white;
+	font-weight: bold;
+	background-color: #78909c;
+	transition: .3s;
+	cursor: pointer;
+	&:hover {
+		background-color: #4b636e;
+	}
+}
+
+@mixin text-input {
+	border: 1px solid $grey;
+	padding: 10px;
+	transition: box-shadow .3s;
+	width: calc(60% - 20px);
+	&:focus {
+		box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+	}
+}
+
+@mixin list-styles {
+	list-style: none;
+	margin: 10px 0 0;
+	padding: 0;
+	li {
+		position: relative;
+		padding: 10px 10px 30px;
+		border-bottom: 1px solid $grey;
+	}
+}
+
+body {
+	font-family: "Open Sans", Verdana, Geneva, sans-serif;
+	padding: 0;
+	margin: 0;
+	display: flex;
+}
+
+.deleteLink {
+	text-align: right;
+	font-size: 14px;
+	text-decoration: none;
+	color: #9b0000;
+	margin-top: 5px;
+	display: block;
+	position: absolute;
+	width: 80px;
+	right: 10px;
+	transition: all .3s;
+	&:hover {
+		color: red;
+		text-decoration: underline;
+	}
+}
+
+.changeLink {
+	text-align: right;
+	font-size: 14px;
+	text-decoration: none;
+	color: $blue;
+	margin-top: 5px;
+	display: block;
+	position: absolute;
+	width: 80px;
+	right: 90px;
+	transition: all .3s;
+	&:hover {
+		color: $dark-blue;
+		text-decoration: underline;
+	}
+}
+
+#modal {
+	min-width: 200px;
+	min-height: calc(100vh - 30px);
+	background-color: $lightgrey;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 30px 15px;
+	p {
+		text-align: center;
+	}
+	#signUp, #signIn {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		input {
+			width: 100%;
+			border: none;
+			outline: none;
+			transition: all .3s;
+			&[type="text"], &[type="password"] {
+				@include text-input;
+				width: calc(100% - 20px);
+				margin-bottom: 5px;
+			}
+			&[type="button"] {
+				padding: 10px;
+				margin-top: 10px;
+				cursor: pointer;
+				font-weight: bold;
+				color: white;
+				background-color: #0091ea;
+				box-shadow: 0 5px 5px rgba(#1d1d1d, .1);
+				&:hover {
+					background-color: #0081cb;
+					box-shadow: 0 10px 15px rgba(#333, .2);
+				}
+			}
+		}
+	}
+	#logout {
+		display: none;
+		input {
+			width: 200px;
+			border: none;
+			padding: 10px;
+			outline: none;
+			font-weight: bold;
+			color: white;
+			background-color: #0f9d58;
+			transition: all .3s;
+			box-shadow: 0 5px 5px rgba(#1d1d1d, .1);
+			&:hover {
+				background-color: #0f8b47;
+				box-shadow: 0 10px 15px rgba(#333, .2);
+			}
+		}
+	}
+
+}
+
+section {
+	min-width: 600px;
+	.tabs {
+		overflow: hidden;
+		background-color: $grey;
+		display: flex;
+		justify-content: space-between;
+		button {
+			background-color: inherit;
+			float: left;
+			border: none;
+			outline: none;
+			cursor: pointer;
+			padding: 14px 16px;
+			width: calc(100% / 3);
+			transition: 0.3s;
+			font-weight: bold;
+			&:hover {
+				background-color: #ddd;
+			}
+			&.active {
+				background-color: #ccc;
+			}
+		}
+	}
+	.tab-content {
+		display: none;
+	}
+}
+
+#notes, #contacts, #todo {
+	min-width: 545px;
+}
+
+#notes {
+	display: block;
+	//flex-grow: 2;
+	.note-controllers {
+		padding: 20px;
+		background-color: $lightgrey;
+		input {
+			outline: none;
+			border: none;
+			&[type="text"] {
+				@include text-input;
+				width: 65%;
+			}
+			&[type="button"] {
+				float: right;
+				@include button;
+				width: 30%;
+			}
+		}
+	}
+
+	#notes-list {
+		@include list-styles;
+		li {
+			width: calc(100% - 20px);
+			border-bottom: 1px solid $grey;
+			margin-bottom: 10px;
+			padding: 10px 20px 30px;
+			position: relative;
+		}
+	}
+}
+
+#contacts {
+	//flex-grow: 2;
+	.contacts-controllers {
+		padding: 20px;
+		background-color: $lightgrey;
+		input {
+			outline: none;
+			border: none;
+			&[type="text"], &[type="tel"] {
+				@include text-input;
+				width: auto;
+			}
+			&[type="button"] {
+				@include button;
+				float: right;
+				width: 30%;
+			}
+		}
+	}
+	#contacts-list {
+		@include list-styles;
+		li {
+			position: relative;
+			padding: 10px 10px 30px;
+			border-bottom: 1px solid $grey;
+			input {
+				outline: none;
+				cursor: default;
+				padding: 5px 10px;
+				font-size: 16px;
+				width: auto;
+				border: none;
+				&[type="text"] {
+					border-right: 1px solid $grey;
+					margin-right: 10px;
+				}
+				&.input-change {
+					border: 1px solid $grey;
+					cursor: text;
+				}
+			}
+		}
+	}
+}
+
+#todo {
+	.todo-controllers {
+		padding: 20px;
+		background-color: $lightgrey;
+		input {
+			outline: none;
+			border: none;
+			&[type="text"], &[type="datetime-local"] {
+				@include text-input;
+				width: auto;
+			}
+			&[type="datetime-local"] {
+				padding: 8px 10px;
+				font-size: 12px;
+				font-family: "Open Sans", Verdana, Geneva, sans-serif;
+				color: darken($grey, 35%);
+			}
+			&[type="button"] {
+				@include button;
+				float: right;
+				width: 30%;
+			}
+		}
+	}
+	#tasks {
+		@include list-styles;
+		li {
+			padding: 10px 20px 30px;
+			input {
+				margin-right: 10px;
+				&:before {
+					cursor: pointer;
+					content: "";
+					display: inline-block;
+					width: 16px;
+					height: 16px;
+					background-color: #aaa;
+					box-shadow: inset 0 2px 3px 0 rgba(0, 0, 0, .3), 0 1px 0 0 rgba(255, 255, 255, .8);
+				}
+				&:checked {
+					&:before {
+						content: "\2713";
+						text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+						font-size: 15px;
+						color: #f3f3f3;
+						text-align: center;
+						line-height: 15px;
+					}
+					& ~ span {
+						text-decoration: line-through;
+					}
+				}
+			}
+			p {
+				text-align: right;
+				color: #ccc;
+				font-size: 12px;
+				margin-bottom: 0;
+			}
+		}
+	}
+}

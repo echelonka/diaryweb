@@ -1,6 +1,6 @@
 # diaryweb
 
-This is an examination web application made for JavaScript professional courses at IT Education Academy in May, 2017.
+This is an examination web application made for JavaScript professional courses at IT Education Academy in May 2017.
 
 The web-application has the following functional:
 * registration and authorization:
@@ -16,6 +16,6 @@ The web-application has the following functional:
   * creating and deleting of each element
   * editing contact name and/or phone number
   
-If you're not registrated or authorized, you can't browse and create any note.
+If you're not registered or authorized, you can't browse and create any note. Only native JavaScript is being used.
 
-You can check this out with by the following [link](https://echelonka.github.io/diaryweb/).
+You can check the web application out by the following [link](https://echelonka.github.io/diaryweb/).

@@ -3,24 +3,25 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Exam App</title>
+	<link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-	<div id="modal">
+	<section id="modal">
 		<div id="signUp">
-			<input type="text" id="nickSignUp" placeholder="Ваш ник"> 
-			<input type="password" id="passSignUp" placeholder="Ваш пароль">
+			<input type="text" id="nickSignUp" placeholder="Ваш ник" required>
+			<input type="password" id="passSignUp" placeholder="Ваш пароль" required>
 			<input type="button" value="Зарегистрироваться" id="signUpButton">
 			<p>или</p>
 		</div>
 		<div id="signIn">
-			<input type="text" id="nickSignIn" placeholder="Ваш ник"> 
-			<input type="password" id="passSignIn" placeholder="Ваш пароль">
+			<input type="text" id="nickSignIn" placeholder="Ваш ник" required>
+			<input type="password" id="passSignIn" placeholder="Ваш пароль" required>
 			<input type="button" value="Войти" id="signInButton">
 		</div>
 		<div id="logout">
 			<input type="button" value="Выйти" id="logoutButton">
 		</div>
-	</div>
+	</section>
 	<section>
 		<div class="tabs">
 			<button class="tablinks active" onclick='changeTab(event, "notes")'>Заметки</button>
@@ -33,6 +34,12 @@
 				<input type="button" id="addNoteButton" value="Добавить заметку">
 			</div>
 			<ul id="notes-list"></ul>
+			<script type="text/template" data-template="note-item">
+				<li>
+					<span>{{noteText}}</span>
+					<a href="#" class="deleteLink" onclick="deleteNote(event)">Удалить</a>
+				</li>
+			</script>
 		</div>
 		<div id="contacts" class="tab-content">
 			<div class="contacts-controllers">
@@ -41,18 +48,32 @@
 				<input type="button" id="addContactButton" value="Добавить контакт">
 			</div>
 			<ul id="contacts-list"></ul>
+			<script type="text/template" data-template="contact-item">
+				<li>
+					<input type="text" value="{{contactName}}" readonly>
+					<input type="tel" value="{{contactTel}}" readonly>
+					<a class="changeLink" href="#" onclick="changeContact(event)">Изменить</a>
+					<a class="deleteLink" href="#" onclick="deleteContact(event)">Удалить</a>
+				</li>
+			</script>
 		</div>
 		<div id="todo" class="tab-content">
 			<div class="todo-controllers">
 				<input type="text" placeholder="Текст задания" id="taskInput" readonly>
 				<input type="datetime-local" id="taskDateInput" readonly>
-				<input type="button" value="Добавить задание" id="addTaskInput">
+				<input type="button" value="Добавить задание" id="addTaskButton">
 			</div>
 			<ul id="tasks"></ul>
+			<script type="text/template" data-template="task-item">
+				<li>
+					<input type="checkbox" checked>
+					<span>{{taskText}}</span>
+					<p>{{taskTime}}</p>
+					<a href="#" class="deleteLink" onclick="deleteTask(event)">Удалить</a>
+				</li>
+			</script>
 		</div>
 	</section>
-
-	<link rel="stylesheet" href="style/style.css">
-	<script src="src/app.js"></script>
+	<script src="js/app.js"></script>
 </body>
 </html>
